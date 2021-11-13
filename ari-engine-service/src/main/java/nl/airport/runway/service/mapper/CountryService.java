@@ -56,8 +56,11 @@ public class CountryService {
                     .parallelStream()
                     .filter(c -> (c.getName().equalsIgnoreCase(countryName) || c.getName().contains(countryName)))
                     .findFirst();
-            Country country = countryObject.get();
-            return getRunwayDetails(country.getCode());
+            if (countryObject.isPresent()) {
+                Country country = countryObject.get();
+                return getRunwayDetails(country.getCode());
+            }
+            throw new NoSuchElementException();
         } catch (NoSuchElementException e) {
             LOGGER.error("No country found in the list for countryName:{}", countryName);
             throw new NoCountryFoundException("No details found for the country");
