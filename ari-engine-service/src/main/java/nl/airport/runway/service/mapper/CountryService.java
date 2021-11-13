@@ -32,7 +32,7 @@ public class CountryService {
     }
 
     /**
-     * Method to get the runway details with the countryCode.
+     * Method to process the runway details with the countryCode.
      *
      * @param countryCode country code.
      * @return - List of runways.
@@ -43,7 +43,7 @@ public class CountryService {
     }
 
     /**
-     * Method to get the runway details with the countryName.
+     * Method to process the runway details with the countryName.
      *
      * @param countryName - country name.
      * @return - List of runways.
