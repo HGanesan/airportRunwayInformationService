@@ -1,4 +1,18 @@
-# Project exclude paths
-/ari-engine/target/
-/ari-engine-core/target/
-/ari-engine-service/target/
+# Maven generated files #
+######################
+target
+*.log
+logs*
+
+# Eclipse generated files #
+######################
+.settings
+.classpath
+.project
+
+# Intellij files
+#####################
+.idea
+*.iml
+*.swp
+
