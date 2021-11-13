@@ -27,6 +27,10 @@ public class CountryService {
         this.ariConfig = AriConfig.getInstance();
     }
 
+    protected CountryService(AriConfig ariConfig) {
+        this.ariConfig = ariConfig;
+    }
+
     public List<Runway> processRunwayWithCountryCode(String countryCode) throws NoAirportFoundException {
         return getRunwayDetails(countryCode);
     }
@@ -61,7 +65,6 @@ public class CountryService {
             List<Runway> runways = new ArrayList<>();
             for (Airport airport : airports) {
                 if (ariConfig.getAirportRunwayMap().containsKey(airport.getId())) {
-                    System.out.println(ariConfig.getAirportRunwayMap().get(airport.getId()).size());
                     runways.addAll(ariConfig.getAirportRunwayMap().get(airport.getId()));
                 }
             }
