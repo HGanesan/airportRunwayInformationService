@@ -31,10 +31,25 @@ public class CountryService {
         this.ariConfig = ariConfig;
     }
 
+    /**
+     * Method to get the runway details with the countryCode.
+     *
+     * @param countryCode country code.
+     * @return - List of runways.
+     * @throws NoAirportFoundException
+     */
     public List<Runway> processRunwayWithCountryCode(String countryCode) throws NoAirportFoundException {
         return getRunwayDetails(countryCode);
     }
 
+    /**
+     * Method to get the runway details with the countryName.
+     *
+     * @param countryName - country name.
+     * @return - List of runways.
+     * @throws NoAirportFoundException
+     * @throws NoCountryFoundException
+     */
     public List<Runway> processRunwayWithCountryName(String countryName) throws NoAirportFoundException, NoCountryFoundException {
         try {
             Optional<Country> countryObject = ariConfig.getCountries()
@@ -49,6 +64,12 @@ public class CountryService {
         }
     }
 
+    /**
+     * Method to process the countries with highest number of airports.
+     *
+     * @param count - Count to get the highest number of countries.
+     * @return - List of countries.
+     */
     public List<String> processCountriesWithHighestNumberOfAirports(int count) {
         Map<String, Integer> countriesWithHighestAirports = ariConfig.getCountryWithAirportCountMap().entrySet()
                 .stream()
