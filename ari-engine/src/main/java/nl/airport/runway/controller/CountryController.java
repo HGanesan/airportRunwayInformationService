@@ -16,8 +16,6 @@ import javax.ws.rs.Path;
 
 import javax.ws.rs.Produces;
 import javax.ws.rs.QueryParam;
-import javax.ws.rs.core.Context;
-import javax.ws.rs.core.UriInfo;
 import java.util.List;
 
 import static javax.ws.rs.core.MediaType.APPLICATION_JSON;
@@ -38,8 +36,7 @@ public class CountryController {
     @GET
     @Path(COUNTRY_CODE)
     @CacheControl(noCache = true, noStore = true)
-    public List<Runway> getRunwayDetailsWithCountryCode(@Context UriInfo uriInfo,
-                                                        @NotNull @QueryParam("countryCode") String countryCode) throws NoAirportFoundException {
+    public List<Runway> getRunwayDetailsWithCountryCode(@NotNull @QueryParam("countryCode") String countryCode) throws NoAirportFoundException {
         LOGGER.info("Process runway details with country code:{}", countryCode);
         return countryService.processRunwayWithCountryCode(countryCode);
     }
@@ -47,8 +44,7 @@ public class CountryController {
     @GET
     @Path(COUNTRY_NAME)
     @CacheControl(noCache = true, noStore = true)
-    public List<Runway> getRunwayDetailsWithCountryName(@Context UriInfo uriInfo,
-                                                        @NotNull @QueryParam("countryName") String countryName) throws NoCountryFoundException, NoAirportFoundException {
+    public List<Runway> getRunwayDetailsWithCountryName(@NotNull @QueryParam("countryName") String countryName) throws NoCountryFoundException, NoAirportFoundException {
         LOGGER.info("Process runway details with country name:{}", countryName);
         return countryService.processRunwayWithCountryName(countryName);
     }
@@ -56,7 +52,7 @@ public class CountryController {
     @GET
     @Path(COUNTRIES_AIRPORT)
     @CacheControl(noCache = true, noStore = true)
-    public List<String> getCountriesWithHighestNumberOfAirports(@Context UriInfo uriInfo, @DefaultValue("10") @QueryParam("count") int count) {
+    public List<String> getCountriesWithHighestNumberOfAirports(@DefaultValue("10") @QueryParam("count") int count) {
         LOGGER.info("Get the countries with highest number of airports");
         return countryService.processCountriesWithHighestNumberOfAirports(count);
     }
