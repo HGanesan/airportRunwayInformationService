@@ -1,0 +1,50 @@
+{
+	"info": {
+		"_postman_id": "c2105476-3cce-4c6b-9d96-c1e47a846576",
+		"name": "AirportRunwayInformationService",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "RunwayWithCountryName",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": null
+			},
+			"response": []
+		},
+		{
+			"name": "RunwayWithCountryCode",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": null
+			},
+			"response": []
+		},
+		{
+			"name": "Top10CountriesWithHighestAirports",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://127.0.0.1:8080/countries/airport",
+					"protocol": "http",
+					"host": [
+						"127",
+						"0",
+						"0",
+						"1"
+					],
+					"port": "8080",
+					"path": [
+						"countries",
+						"airport"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}

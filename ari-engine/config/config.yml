@@ -1,0 +1,36 @@
+#
+# config file used for development (when tdp started in IDEA and dockers)
+#
+server:
+  applicationConnectors:
+    - type: http
+      port: 8080
+
+web:
+  hsts:
+    enabled: true
+  content-type-options:
+    enabled: true
+
+csvAirportResourcePath: "src/main/resources/airports.csv"
+
+csvRunwayResourcePath: "src/main/resources/runways.csv"
+
+csvCountryResourcePath: "src/main/resources/countries.csv"
+
+logging:
+  level: INFO
+  loggers:
+    "nl.kb":
+      level: DEBUG
+      additive: false
+      appenders:
+        - type: file
+          currentLogFilename: logs/ari-service.log
+          archivedLogFilenamePattern: logs/ari-service-%d.log.gz
+          archivedFileCount: 5
+          timeZone: UTC
+        - type: console
+          target: stderr
+    "nl.airport.runway.logging": DEBUG
+
